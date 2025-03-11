@@ -10,7 +10,6 @@ let whichEvent = -1; // determines recession or boom
 let chapterOne = false;
 let readyForEventEffects = false;
 let gameChapter = 0;
-let canUseOthers = false; // determines if the other possible commands are available to use
 let moveOnEvent = false; // Used for invalid inputs -> if false notify
 let possibleStock = [1.27, 0.91, 1.21, 2.94]; 
 let possibleCrypto = [0.59, 0.33, 2.42, 2.22]; 
@@ -43,15 +42,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 titleContent.style.display = "none";
                 stylesheet.href = "gameStyle.css";
                 splineBG.style.display = "none";
-                mainContent.style.display = "inline-block"
-                canUseOthers = true;  
+                mainContent.style.display = "inline-block";
                 handleIntro();
             // Alerts for all the functions
-            } else if(userInput == 'help' && canUseOthers == true) {
+            } else if(userInput == 'help') {
                 help();
-            } else if(userInput == 'stats'&& canUseOthers == true) {
+            } else if(userInput == 'stats') {
                 stats();
-            } else if(userInput == 'stop'&& canUseOthers == true) {
+            } else if(userInput == 'stop') {
                 stop();
             // Endgame
             } else if(gameChapter >= 3) {
@@ -87,7 +85,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 typeText(text);
                 updateEvent();
                 readyForEventEffects = false; 
-            } else if(userInput == 'continue'&& canUseOthers == true && chapterOne == false) {
+            } else if(userInput == 'continue' && chapterOne == false) {
                 const text = 
                 `
                     You sit at your desk, staring at the computer screen. The markets have just opened, and several options are available to you.
@@ -115,7 +113,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 <p>Type "buy," "sell," or "proceed" to make your choice. you can also type "stats" to check your portfolio.</p>
                 `;
                 handleRestGame(userInput);
-            } else if (canUseOthers) {
+            } else if (gameChapter == 0) {
                 handleFirstGame(userInput);
             } else {
                 alert("Invalid Response!");
@@ -134,7 +132,7 @@ function handleIntro() {
         The market is unpredictable, opportunities are fleeting, and the pressure is on. Every decision you make will influence your financial journey, but time is your most critical asset. \n
         Will you build your fortune, or will the volatile market pull you under before you reach your goals? ‣ ‣ ‣
     `;
-    typeTextCB(mainContent, text, 30, () => {
+    typeTextCB(mainContent, text, 25, () => {
         inputField.style.display = "none";
         //This callback runs after the first typing animation finishes
         text = 
@@ -144,7 +142,7 @@ function handleIntro() {
         \nType "continue" to continue, "help" for help, "stats" to see your stats, or "stop" to stop the game
         `;
         //Hides input field until it's done
-        typeTextCB(mainContent, text, 20, () => {
+        typeTextCB(mainContent, text, 15, () => {
             inputField.style.display = "flex";
         });
     });
@@ -569,7 +567,7 @@ function handleEndGame() {
         `;
     }
 
-    typeTextCB(mainContent, text, 20, () => {
+    typeTextCB(mainContent, text, 15, () => {
         inputField.style.display = "none";
     });
 }
@@ -586,7 +584,7 @@ function updateEvent() {
     }
 }
 //Typing function for only the intro, as here are multiple and callback is needed
-function typeTextCB(element, text, speed = 20, callback) {
+function typeTextCB(element, text, speed =15, callback) {
     let i = 0;
     element.innerHTML = ""; // Clear the element's content
     inputField.style.display = "none";
@@ -639,7 +637,7 @@ function typeText(text) {
             i++; // Increment `i` here to avoid infinite loop
 
             //add delays for specific characters
-            let delay = 20; //default speed of 20ms
+            let delay = 15; //default speed of 20ms
             if (i > 0) {
                 if (text.charAt(i - 1) === "." || text.charAt(i - 1) === "?") {
                     delay = 250; // 250ms delay after a period or question mark
