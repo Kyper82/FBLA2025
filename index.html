@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Financial Breakthrough: Limitless Ambition</title>
+        <!--Link Stylesheet-->
+        <link id = "stylesheet" rel = "stylesheet" href = "titleStyle.css"></link>
+        <link rel="icon" type="image/x-icon" href="Text-Based Game 1.0/favicon.ico">
+    </head>
+    <body id = wholeScreen>
+        <!--Spline Import - 3D Background-->
+        <spline-viewer id = "splineBG" loading-anim-type="spinner-big-light" url="https://prod.spline.design/rinw0C6tbzLH6rKc/scene.splinecode"></spline-viewer>
+        <!--Title Area-->
+        <div class = "titleContent" id = titleWrapper>
+            <h1 id = "title">Time is of the Essence.</h1>
+            <h2 id = "subtitle">A Text-Based Adventure</h2>
+        </div>
+        <!--Generated Output-->
+        <div id = "mainContent">
+        </div>
+        
+        
+        <div class="container">
+            <!--User Input-->
+            <div class = "inputWrapper">
+                <input id = "userInput" type="text" placeholder='Type "start" to begin' autocomplete="off"></input>
+            </div>
+
+        </div>
+        
+        <!--Linking JS-->
+        <script src= "script.js"></script>
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.75/build/spline-viewer.js"></script>
+    </body>
+</html>

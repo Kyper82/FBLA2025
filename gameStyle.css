@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap');
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#wholeScreen {
+    background-image: linear-gradient(#A4B465, #474E2C);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.titleContent {
+    font-family: "Faculty Glyphic", sans-serif;
+}
+#title {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 54px;
+    font-weight: 200;
+    color:white;
+    margin-bottom: 0px;
+}
+
+#subtitle {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 10px;
+    color:white;
+    font-weight:150;
+}
+
+.inputWrapper {
+    width: 160vh;
+    max-width: 100%;
+    position: relative; 
+    box-shadow: 0px 0px black;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: center;
+}
+
+.inputWrapper #userInput {
+    
+    all: initial;
+    width: 100%;
+    background: #626F47;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.4);
+    color: rgba(255, 255, 255, 0.5);
+    caret-color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    font-family: "Faculty Glyphic", "sans serif";
+}
+
+#userInput::placeholder {
+    color:rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    font-family: "Faculty Glyphic", "sans serif";
+}
+
+#mainContent {
+    width: 140vh;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.4);
+    padding: 8vh;
+    margin-bottom: 8vh;
+    font-size: 14px;
+    font-family: "Faculty Glyphic", "sans serif";
+    
+}
+
+
